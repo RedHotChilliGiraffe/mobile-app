@@ -1,9 +1,12 @@
-import {Link} from 'expo-router';
 import React from 'react';
 import {View} from 'react-native';
-import {Button} from 'react-native-paper';
+import {useAuthStore} from '../../stores/Auth';
+import HomeLoginView from './HomeLoginView';
+import ProfileView from './ProfileView';
 
 const Home: React.FC = () => {
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+
   return (
     <View
       style={{
@@ -13,10 +16,7 @@ const Home: React.FC = () => {
         justifyContent: 'center',
         gap: 10,
       }}>
-      <Link href="/login">
-        <Button mode="contained">Login</Button>
-      </Link>
-      <Button mode="contained">Register</Button>
+      {isAuthenticated ? <ProfileView /> : <HomeLoginView />}
     </View>
   );
 };

@@ -1,29 +1,31 @@
 import {useForm} from 'react-hook-form';
 import Input from '../../components/Input';
-import {LoginFormFields} from './types';
+import {RegisterFormFields} from './types';
 import {Button} from 'react-native-paper';
 import {View} from 'react-native';
 import {useAuthStore} from '../../stores/Auth';
 import {useRouter} from 'expo-router';
 import {useEffect} from 'react';
 
-const Login: React.FC = () => {
-  const {
-    control,
-    handleSubmit,
-    setError,
-    formState: {errors},
-  } = useForm<LoginFormFields>();
-  const authenticate = useAuthStore((state) => state.authenticate);
+const Register: React.FC = () => {
+  const {control, handleSubmit, setError} = useForm<RegisterFormFields>();
+  const register = useAuthStore((state) => state.register);
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const router = useRouter();
 
-  const onSubmit = async (data: LoginFormFields) => {
-    try {
-      await authenticate(data);
-    } catch (err) {
-      setError('username', {message: 'Niewłaściwe dane'});
-      console.log('unauthenticated', JSON.stringify(err));
+  const onSubmit = async ({
+    password,
+    email,
+    username,
+    repeatPassword,
+  }: RegisterFormFields) => {
+    if (password === repeatPassword) {
+      try {
+        await register({email, username, password});
+      } catch (err) {
+        console.log('unauthenticated', JSON.stringify(err));
+        setError('username', {message: 'Wrong data!'});
+      }
     }
   };
 
@@ -44,20 +46,26 @@ const Login: React.FC = () => {
         label="username"
         placeholder="username"
         name="username"
-        required
         control={control}
       />
+      <Input.Email control={control} />
       <Input.Password
         label="password"
         placeholder="password"
         name="password"
         control={control}
       />
+      <Input.Password
+        label="repeat password"
+        placeholder="repeat password"
+        name="repeatPassword"
+        control={control}
+      />
       <Button mode="contained" onPress={handleSubmit(onSubmit)}>
-        Login
+        Register
       </Button>
     </View>
   );
 };
 
-export default Login;
+export default Register;
