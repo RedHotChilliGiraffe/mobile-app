@@ -11,6 +11,9 @@ export const styles = StyleSheet.create({
   title: {
     fontWeight: '700',
   },
+  label: {
+    fontSize: 20,
+  },
   buttons: {
     flex: 0.5,
     alignItems: 'center',

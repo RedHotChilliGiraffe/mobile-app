@@ -1,14 +1,25 @@
 import {Link} from 'expo-router';
 import {Button} from 'react-native-paper';
+import {styles} from '../HomeView/styles';
 
 const HomeLoginView: React.FC = () => {
   return (
     <>
       <Link href="/login">
-        <Button mode="contained">Login</Button>
+        <Button
+          style={styles.button}
+          labelStyle={styles.label}
+          mode="contained">
+          Login
+        </Button>
       </Link>
       <Link href="/register">
-        <Button mode="contained">Register</Button>
+        <Button
+          labelStyle={styles.label}
+          style={styles.button}
+          mode="contained">
+          Register
+        </Button>
       </Link>
     </>
   );
