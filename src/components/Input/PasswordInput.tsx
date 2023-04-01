@@ -28,6 +28,7 @@ const Password = <T extends FieldValues>({
     <View style={{width: '100%'}}>
       {error?.message ? <ErrorText>{error.message}</ErrorText> : null}
       <TextInput
+        mode="outlined"
         label={label}
         placeholder={placeholder}
         value={value}

@@ -11,6 +11,9 @@ const colors = {
     ...DefaultTheme.colors,
     primary: '#F3A738',
     background: '#FEF1B8',
+    surfaceVariant: '#FEF7D7',
+    onSurfaceVariant: '#938F6A',
+    outline: '#F7C478',
   },
 };
 

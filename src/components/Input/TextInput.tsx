@@ -4,7 +4,8 @@ import {TextInput as PaperTextInput} from 'react-native-paper';
 import {View, Text} from 'react-native';
 import {TextInputProps} from './types';
 import ErrorText from '../ErrorText';
-
+import {useTheme} from 'react-native-paper';
+import colors from '../../theme/colors';
 const TextInput = <T extends FieldValues>({
   label,
   name,
@@ -25,6 +26,7 @@ const TextInput = <T extends FieldValues>({
     <View style={{width: '100%'}}>
       {error?.message ? <ErrorText>{error.message}</ErrorText> : null}
       <PaperTextInput
+        mode="outlined"
         label={label}
         placeholder={placeholder}
         value={value}
