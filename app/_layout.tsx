@@ -7,7 +7,9 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {AuthProvider} from '../src/stores/Auth';
 
 export default function () {
-  const [theme, setTheme] = useState(themes['dark']);
+  const [theme, setTheme] = useState(
+    themes[Appearance.getColorScheme() || 'light'],
+  );
 
   Appearance.addChangeListener((data) => {
     setTheme(themes[data.colorScheme || 'light']);
