@@ -7,9 +7,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {AuthProvider} from '../src/stores/Auth';
 
 export default function () {
-  const [theme, setTheme] = useState(
-    themes[Appearance.getColorScheme() || 'light'],
-  );
+  const [theme, setTheme] = useState(themes['dark']);
 
   Appearance.addChangeListener((data) => {
     setTheme(themes[data.colorScheme || 'light']);
@@ -23,8 +21,6 @@ export default function () {
           style={[
             {
               backgroundColor: theme.colors.background,
-              borderWidth: 2,
-              borderColor: 'red',
             },
             StyleSheet.absoluteFill,
           ]}>
