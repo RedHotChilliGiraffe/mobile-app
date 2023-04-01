@@ -8,14 +8,17 @@ import {
 } from 'react-native-paper';
 import {View} from 'react-native';
 import {styles} from './styles';
+import {useState} from 'react';
 
 type Props = {
   visible: boolean;
   hideModal: () => void;
+  handlePress: (data: string) => void | Promise<void>;
 };
 
-const ThemeModal = ({visible, hideModal}: Props) => {
+const ThemeModal = ({visible, hideModal, handlePress}: Props) => {
   const {colors} = useTheme();
+  const [theme, setTheme] = useState('');
   const containerStyle = {
     backgroundColor: colors.onPrimary,
     opacity: 0.97,
@@ -38,14 +41,19 @@ const ThemeModal = ({visible, hideModal}: Props) => {
             mode="flat"
             textColor={colors.tertiary}
             multiline={true}
+            value={theme}
+            onChangeText={setTheme}
             label="Set game theme"
             placeholder="Vampire kingdom"
             underlineStyle={{borderRadius: 200}}
             contentStyle={{paddingTop: 30}}
             activeUnderlineColor={colors.onTertiary}
           />
-          <Button mode="outlined" style={styles.button}>
-            Submit
+          <Button
+            mode="outlined"
+            style={styles.button}
+            onPress={() => handlePress(theme)}>
+            Create
           </Button>
         </View>
       </Modal>

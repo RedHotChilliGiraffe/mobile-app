@@ -1,11 +1,9 @@
 import {createStore} from 'zustand';
 import {API} from '../../utils/api/api';
-import {LoginFormFields} from '../../screens/Login/types';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY} from './consts';
 import {AuthStoreType} from './types';
 import authenticatedRequest from '../../utils/api/authenticatedRequest';
-import {RegisterFormFields} from '../../screens/Register/types';
 
 const authStore = createStore<AuthStoreType>((set) => ({
   isAuthenticated: false,

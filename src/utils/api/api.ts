@@ -2,7 +2,7 @@ import {AxiosRequestConfig, AxiosResponse} from 'axios';
 import {LoginFormFields} from '../../screens/Login/types';
 import {RegisterFormFields} from '../../screens/Register/types';
 import axiosClient from './client';
-import {ProfileData, TokenResponse} from './types';
+import {LobbyData, ProfileData, TokenResponse} from './types';
 
 export class API {
   static logIn(data: LoginFormFields): Promise<AxiosResponse<TokenResponse>> {
@@ -23,6 +23,25 @@ export class API {
 
   static getProfileData(token: string): Promise<AxiosResponse<ProfileData>> {
     const url = 'auth/profile/';
+    const method = 'GET';
+
+    return API.request({url, method, token});
+  }
+
+  static createLobby(
+    token: string,
+    data: {theme: string},
+  ): Promise<AxiosResponse<LobbyData>> {
+    const url = 'lobby/';
+    const method = 'POST';
+
+    return API.request({url, method, token, data});
+  }
+
+  static getLobbiesList(
+    token: string,
+  ): Promise<AxiosResponse<Array<LobbyData>>> {
+    const url = 'lobby/';
     const method = 'GET';
 
     return API.request({url, method, token});
