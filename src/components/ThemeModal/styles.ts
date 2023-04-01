@@ -5,21 +5,17 @@ export const styles = StyleSheet.create({
     padding: '10%',
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     gap: 10,
   },
-  title: {
-    fontWeight: '700',
-  },
-  buttons: {
-    flex: 0.5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 20,
+
+  input: {
+    width: 300,
+    padding: 10,
   },
   button: {
     padding: 10,
     borderRadius: 40,
-    width: 200,
+    width: 150,
   },
 });

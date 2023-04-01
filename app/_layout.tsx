@@ -1,5 +1,8 @@
 import {Slot, Stack} from 'expo-router';
-import {ThemeProvider as PaperThemeProvider} from 'react-native-paper';
+import {
+  ThemeProvider as PaperThemeProvider,
+  Provider,
+} from 'react-native-paper';
 import {Appearance, StyleSheet} from 'react-native';
 import themes from '../src/theme/theme';
 import {useState} from 'react';
@@ -16,19 +19,21 @@ export default function () {
   });
 
   return (
-    // @ts-ignore
-    <PaperThemeProvider theme={theme}>
-      <AuthProvider>
-        <SafeAreaProvider
-          style={[
-            {
-              backgroundColor: theme.colors.background,
-            },
-            StyleSheet.absoluteFill,
-          ]}>
-          <Slot />
-        </SafeAreaProvider>
-      </AuthProvider>
-    </PaperThemeProvider>
+    <Provider>
+      {/* @ts-ignore */}
+      <PaperThemeProvider theme={theme}>
+        <AuthProvider>
+          <SafeAreaProvider
+            style={[
+              {
+                backgroundColor: theme.colors.background,
+              },
+              StyleSheet.absoluteFill,
+            ]}>
+            <Slot />
+          </SafeAreaProvider>
+        </AuthProvider>
+      </PaperThemeProvider>
+    </Provider>
   );
 }
