@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import {useAuthStore} from '../../stores/Auth';
 import HomeLoginView from './HomeLoginView';
-import ProfileView from './ProfileView';
+import HomeView from './HomeView';
 
 const Home: React.FC = () => {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
         justifyContent: 'center',
         gap: 10,
       }}>
-      {isAuthenticated ? <ProfileView /> : <HomeLoginView />}
+      {isAuthenticated ? <HomeView /> : <HomeLoginView />}
     </View>
   );
 };
