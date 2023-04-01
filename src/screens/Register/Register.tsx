@@ -6,6 +6,7 @@ import {View} from 'react-native';
 import {useAuthStore} from '../../stores/Auth';
 import {useRouter} from 'expo-router';
 import {useEffect} from 'react';
+import {styles} from '../Home/HomeView/styles';
 
 const Register: React.FC = () => {
   const {control, handleSubmit, setError} = useForm<RegisterFormFields>();
@@ -61,7 +62,16 @@ const Register: React.FC = () => {
         name="repeatPassword"
         control={control}
       />
-      <Button mode="contained" onPress={handleSubmit(onSubmit)}>
+      <Button
+        style={{
+          padding: 10,
+          borderRadius: 40,
+          width: 200,
+          marginTop: 10,
+        }}
+        labelStyle={styles.label}
+        mode="contained"
+        onPress={handleSubmit(onSubmit)}>
         Register
       </Button>
     </View>

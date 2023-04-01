@@ -29,6 +29,7 @@ const Email = <T extends {email: string}>({
       {error?.message ? <ErrorText>{error.message}</ErrorText> : null}
       <TextInput
         label="email"
+        mode="outlined"
         placeholder="email"
         value={value}
         onChangeText={onChange}

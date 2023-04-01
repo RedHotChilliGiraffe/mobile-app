@@ -6,6 +6,7 @@ import {View} from 'react-native';
 import {useAuthStore} from '../../stores/Auth';
 import {useRouter} from 'expo-router';
 import {useEffect} from 'react';
+import {styles} from '../Home/HomeView/styles';
 
 const Login: React.FC = () => {
   const {
@@ -53,7 +54,16 @@ const Login: React.FC = () => {
         name="password"
         control={control}
       />
-      <Button mode="contained" onPress={handleSubmit(onSubmit)}>
+      <Button
+        style={{
+          padding: 10,
+          borderRadius: 40,
+          width: 200,
+          marginTop: 60,
+        }}
+        labelStyle={styles.label}
+        mode="contained"
+        onPress={handleSubmit(onSubmit)}>
         Login
       </Button>
     </View>
