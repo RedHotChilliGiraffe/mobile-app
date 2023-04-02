@@ -34,6 +34,7 @@ const LobbiesList: React.FC = () => {
         paddingTop: 50,
       }}>
       <FlatList
+        style={{width: '100%'}}
         data={lobbies}
         renderItem={renderItem}
         keyExtractor={({id}) => String(id)}

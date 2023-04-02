@@ -1,5 +1,4 @@
 import {usePathname, useRouter} from 'expo-router';
-import {View} from 'react-native';
 import Lobby from '../../src/screens/Lobby';
 
 const LobbyPage: React.FC = () => {
