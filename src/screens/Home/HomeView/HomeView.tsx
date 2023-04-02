@@ -15,6 +15,7 @@ const HomeView: React.FC = () => {
   const {username} = useAuthStore((state) => state.userData);
   const [visible, setVisible] = useState(false);
   const hydrateLobby = useLobbyStore((state) => state.hydrate);
+  const purify = useLobbyStore((state) => state.purify);
   const router = useRouter();
 
   const showModal = () => setVisible(true);
@@ -29,6 +30,7 @@ const HomeView: React.FC = () => {
       const {data} = await authenticatedRequest(async (token) =>
         API.createLobby(token, {theme}),
       );
+      purify();
       hydrateLobby({
         id: data.id,
         isActive: data.is_active,

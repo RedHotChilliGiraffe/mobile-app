@@ -9,13 +9,22 @@ const authStore = createStore<LobbyStoreType>((set) => ({
   hostUsername: '',
   theme: '',
   webSocket: undefined,
+  waiting: false,
   isHost: false,
   messages: null,
   hydrate: set,
   connectWebSocket: (id) => {
-    const webSocket = new WebSocket(`${WEB_SOCKET_URL}/${id}`);
+    const webSocket = new WebSocket(`${WEB_SOCKET_URL}/${id}/`);
     webSocket.onmessage = (event) => {
-      console.log(event);
+      set({waiting: false});
+      const tempData = JSON.parse(event?.data);
+      if (Array.isArray(tempData)) {
+        set({
+          messages: tempData.filter(
+            (messageObj) => messageObj?.role && messageObj?.content,
+          ),
+        });
+      }
     };
 
     set({webSocket});
@@ -31,6 +40,9 @@ const authStore = createStore<LobbyStoreType>((set) => ({
       isHost: false,
       messages: null,
     });
+  },
+  setWaiting: (waiting: boolean) => {
+    set({waiting});
   },
 }));
 

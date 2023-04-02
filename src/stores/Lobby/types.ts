@@ -15,7 +15,9 @@ type LobbyAttributes = {
 export type LobbyStoreType = LobbyAttributes & {
   webSocket?: WebSocket;
   messages: Array<MessageType> | null;
-  connectWebSocket: (id: string) => void;
+  connectWebSocket: (id: number) => void;
   hydrate: (data: Partial<LobbyAttributes>) => void;
   purify: () => void;
+  waiting: boolean;
+  setWaiting: (value: boolean) => void;
 };
