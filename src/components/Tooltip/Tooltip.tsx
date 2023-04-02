@@ -11,14 +11,15 @@ const Tooltip: React.FC<{children: string}> = ({children}) => {
         borderWidth: 2,
         borderColor: colors.primary,
         flexDirection: 'row',
-        padding: 5,
+        padding: 16,
         borderRadius: 15,
+        marginBottom: 10,
       }}>
       <View style={{flex: 1, justifyContent: 'center'}}>
         <Ionicons name="information" size={32} />
       </View>
       <View style={{flex: 6}}>
-        <Text style={{textAlign: 'center'}}>{children}</Text>
+        <Text style={{textAlign: 'left'}}>{children}</Text>
       </View>
     </View>
   );

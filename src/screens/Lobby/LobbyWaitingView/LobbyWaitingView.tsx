@@ -24,6 +24,9 @@ const LobbyWaitingView: React.FC = () => {
             Try to write complete sentences during the conversation!
           </Text>
         </View>
+        <Image
+          source={require('../../../../assets/dragon.png')}
+          style={styles.image}></Image>
       </View>
     </>
   );

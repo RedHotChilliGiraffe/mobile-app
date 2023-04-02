@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 10,
     padding: 5,
+    opacity: 0.8,
     alignItems: 'center',
   },
 });

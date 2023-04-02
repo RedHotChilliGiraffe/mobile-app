@@ -23,7 +23,7 @@ const ThemeModal = ({visible, hideModal, handlePress}: Props) => {
     backgroundColor: colors.onPrimary,
     opacity: 0.97,
     padding: 20,
-    height: 400,
+    height: 415,
   };
 
   return (

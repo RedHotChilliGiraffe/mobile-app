@@ -46,8 +46,8 @@ const Register: React.FC = () => {
         gap: 10,
       }}>
       <Tooltip>
-        Create an account with unique username. After successful register, you
-        will be redirected to login page
+        Create an account with unique username. After successful registration,
+        you will be redirected to login page.
       </Tooltip>
       <Input.Text
         label="username"

@@ -7,6 +7,9 @@ import {unregisterStyles} from './styles';
 const HomeLoginView: React.FC = () => {
   return (
     <View style={unregisterStyles.container}>
+      <Image
+        source={require('../../../../assets/giraffe.png')}
+        style={unregisterStyles.image}></Image>
       <View style={unregisterStyles.buttons}>
         <Link href="/login">
           <Button
