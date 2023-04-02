@@ -17,7 +17,7 @@ const colors = {
     ...DefaultTheme.colors,
     primary: '#F3A738',
     onPrimary: '#FEF7D7',
-    background: '#FEF1B8',
+    background: '#FEF7E2',
     surfaceVariant: '#FEF7D7',
     onSurfaceVariant: '#938F6A',
     outline: '#F7C478',

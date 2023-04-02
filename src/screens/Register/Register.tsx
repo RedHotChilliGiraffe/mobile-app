@@ -1,12 +1,13 @@
 import {useForm} from 'react-hook-form';
 import Input from '../../components/Input';
 import {RegisterFormFields} from './types';
-import {Button} from 'react-native-paper';
+import {Button, Text} from 'react-native-paper';
 import {View} from 'react-native';
 import {useAuthStore} from '../../stores/Auth';
 import {useRouter} from 'expo-router';
 import {useEffect} from 'react';
 import {styles} from '../Home/HomeView/styles';
+import Tooltip from '../../components/Tooltip';
 
 const Register: React.FC = () => {
   const {control, handleSubmit, setError} = useForm<RegisterFormFields>();
@@ -23,6 +24,7 @@ const Register: React.FC = () => {
     if (password === repeatPassword) {
       try {
         await register({email, username, password});
+        router.replace('../login/');
       } catch (err) {
         console.log('unauthenticated', JSON.stringify(err));
         setError('username', {message: 'Wrong data!'});
@@ -43,6 +45,10 @@ const Register: React.FC = () => {
         justifyContent: 'center',
         gap: 10,
       }}>
+      <Tooltip>
+        Create an account with unique username. After successful register, you
+        will be redirected to login page
+      </Tooltip>
       <Input.Text
         label="username"
         placeholder="username"

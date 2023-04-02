@@ -14,6 +14,7 @@ const LobbiesList: React.FC = () => {
         const {data} = await authenticatedRequest((token) =>
           API.getLobbiesList(token),
         );
+        console.log(data);
         setLobbies(data);
       } catch (err) {
         console.log(JSON.stringify(err));
@@ -34,7 +35,7 @@ const LobbiesList: React.FC = () => {
         paddingTop: 50,
       }}>
       <FlatList
-        style={{width: '100%'}}
+        style={{width: '80%'}}
         data={lobbies}
         renderItem={renderItem}
         keyExtractor={({id}) => String(id)}

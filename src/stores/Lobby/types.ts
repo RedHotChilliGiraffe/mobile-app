@@ -9,6 +9,7 @@ type LobbyAttributes = {
   isActive: boolean;
   isStarted: boolean;
   id: number | null;
+  isHost: boolean;
 };
 
 export type LobbyStoreType = LobbyAttributes & {
@@ -16,4 +17,5 @@ export type LobbyStoreType = LobbyAttributes & {
   messages: Array<MessageType> | null;
   connectWebSocket: (id: string) => void;
   hydrate: (data: Partial<LobbyAttributes>) => void;
+  purify: () => void;
 };

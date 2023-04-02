@@ -34,6 +34,7 @@ const HomeView: React.FC = () => {
         isActive: data.is_active,
         isStarted: data.started,
         theme: data.theme,
+        isHost: true,
       });
       router.push(`/lobby/${data.id}/`);
     } catch (err) {

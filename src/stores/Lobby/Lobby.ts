@@ -9,6 +9,7 @@ const authStore = createStore<LobbyStoreType>((set) => ({
   hostUsername: '',
   theme: '',
   webSocket: undefined,
+  isHost: false,
   messages: null,
   hydrate: set,
   connectWebSocket: (id) => {
@@ -18,6 +19,18 @@ const authStore = createStore<LobbyStoreType>((set) => ({
     };
 
     set({webSocket});
+  },
+  purify: () => {
+    set({
+      id: null,
+      isActive: false,
+      isStarted: false,
+      hostUsername: '',
+      theme: '',
+      webSocket: undefined,
+      isHost: false,
+      messages: null,
+    });
   },
 }));
 

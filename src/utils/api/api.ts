@@ -47,6 +47,16 @@ export class API {
     return API.request({url, method, token});
   }
 
+  static joinLobby(
+    token: string,
+    data: {id: number},
+  ): Promise<AxiosResponse<Array<void>>> {
+    const url = 'join/';
+    const method = 'POST';
+
+    return API.request({url, method, token, data});
+  }
+
   static async request<T>(
     options: AxiosRequestConfig & {token?: string},
   ): Promise<AxiosResponse<T>> {
