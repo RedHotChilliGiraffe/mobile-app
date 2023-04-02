@@ -18,10 +18,12 @@ const LobbyCard: React.FC<LobbyData> = ({id, theme}) => {
   };
 
   const {colors} = useTheme();
+  const partTheme = theme.length < 30 ? theme : `${theme.slice(0, 30)}...`;
+
   return (
-    <View style={[styles.background, {backgroundColor: colors.backdrop}]}>
+    <View style={[styles.background, {backgroundColor: colors.inversePrimary}]}>
       <Text style={styles.text} variant="titleLarge">
-        Theme: {theme}
+        Theme: {partTheme}
       </Text>
       <Button onPress={handlePress}>Join lobby!</Button>
     </View>

@@ -4,7 +4,7 @@ import {ThemeMode} from './types';
 const colors = {
   [ThemeMode.Dark]: {
     ...MD3DarkTheme.colors,
-    primary: '#AC91DE',
+    primary: '#8D7BAE',
     onPrimary: '#372F47',
     background: '#160C28',
     surfaceVariant: '#9F95B1',
@@ -12,6 +12,7 @@ const colors = {
     outline: '#C0ABE7',
     tertiary: '#23221F',
     onTertiary: '#160C28',
+    inversePrimary: '#3A3446',
   },
   [ThemeMode.Light]: {
     ...DefaultTheme.colors,
@@ -23,6 +24,7 @@ const colors = {
     outline: '#F7C478',
     tertiary: '#2F2B24',
     onTertiary: '#F7C478',
+    inversePrimary: '#FBF0DA',
   },
 };
 

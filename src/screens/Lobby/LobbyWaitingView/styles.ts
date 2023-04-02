@@ -5,22 +5,19 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 30,
     gap: 10,
   },
   smallContainer: {
-    flex: 0.6,
+    flex: 0.8,
     marginTop: 60,
     alignItems: 'center',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     gap: 10,
   },
   loading: {
     gap: 18,
-  },
-  button: {
-    padding: 10,
-    borderRadius: 40,
-    width: 200,
+    paddingBottom: 40,
   },
   image: {
     alignSelf: 'center',

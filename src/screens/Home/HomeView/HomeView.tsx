@@ -47,6 +47,9 @@ const HomeView: React.FC = () => {
       <Text style={styles.title} variant="displaySmall">
         Hi {username}!
       </Text>
+      <Text variant="headlineSmall">
+        Create your own story or join one already created.
+      </Text>
       <ThemeModal
         visible={visible}
         hideModal={hideModal}
